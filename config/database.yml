@@ -17,6 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: deploy
+  password: pointer
+
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -81,5 +84,3 @@ test:
 production:
   <<: *default
   database: doc_uploader_production
-  username: doc_uploader
-  password: <%= ENV['DOC_UPLOADER_DATABASE_PASSWORD'] %>
