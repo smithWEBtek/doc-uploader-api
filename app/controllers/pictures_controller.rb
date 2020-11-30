@@ -1,10 +1,15 @@
 class PicturesController < ApplicationController
   def index
     render json: Picture.all.with_attached_attachment.order(id: :desc)
+    # render json: Picture.all
   end
 
   def show
     @picture = Picture.find(params[:id])
+    # respond_to do |format|
+      # format.html { render :show }
+      # format.json { render json: @picture }
+    # end
     render json: @picture
   end
 
