@@ -1,5 +1,4 @@
 class Picture < ApplicationRecord
-
   include ActiveModel::Serializers::JSON
 
   has_one_attached :attachment
@@ -15,7 +14,6 @@ class Picture < ApplicationRecord
 
   def attachment_url
     Rails.application.routes.url_helpers.rails_representation_url(
-      attachment.variant(resize_to_limit: [200,200]).processed, only_path: true
-    )
+      attachment.variant(resize_to_limit: [200, 200]).processed, only_path: true)
   end
 end
